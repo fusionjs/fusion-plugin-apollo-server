@@ -1,0 +1,7 @@
+version: '2'
+services:
+  fusion-plugin-apollo-server:
+    build: .
+    volumes:
+      - '.:/fusion-plugin-apollo-server'
+      - /fusion-plugin-apollo-server/node_modules/
