@@ -1,27 +1,28 @@
+// @flow
 /** Copyright (c) 2018 Uber Technologies, Inc.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * @flow
  */
 
-import {createPlugin} from 'fusion-core';
-import type {FusionPlugin} from 'fusion-core';
-import type {PluginServiceType} from './types.js';
+import {createPlugin, type Middleware} from 'fusion-core';
+import {graphqlKoa} from 'apollo-server-koa';
+import {GraphQLSchemaToken} from 'fusion-apollo';
+import {ApolloServerEndpointToken} from './tokens';
 
 const plugin =
   __NODE__ &&
   createPlugin({
-    provides() {
-      return null;
-    },
-    middleware() {
-      return async (ctx, next) => {
-        if (ctx.element) return next();
-        return next();
-      };
-    },
+    deps: {endpoint: ApolloServerEndpointToken, schema: GraphQLSchemaToken},
+    provides: ({schema}) =>
+      graphqlKoa(() => ({
+        schema,
+        tracing: true,
+        cacheControl: true,
+      })),
+    middleware: ({endpoint}, handler): Middleware => (ctx, next) =>
+      ctx.path === endpoint ? handler(ctx) : next(),
   });
 
-export default ((plugin: any): FusionPlugin<empty, PluginServiceType>);
+export default plugin;
