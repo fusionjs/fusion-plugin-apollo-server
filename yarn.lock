@@ -2668,9 +2668,9 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
-fusion-apollo@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/fusion-apollo/-/fusion-apollo-1.0.4.tgz#50fb665853a42e4d72922940c2948dba14f87ec7"
+fusion-apollo@^1.1.0-0:
+  version "1.1.0-0"
+  resolved "https://registry.yarnpkg.com/fusion-apollo/-/fusion-apollo-1.1.0-0.tgz#80695965948928139d17c9a6663d6cee21eee4c4"
   dependencies:
     fusion-react "^1.0.4"
 
