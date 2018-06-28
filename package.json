@@ -1,7 +1,7 @@
 {
   "name": "fusion-plugin-apollo-server",
   "description": "Connects a GraphQL schema to a Fusion.js server.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "repository": "fusionjs/fusion-plugin-apollo-server",
   "main": "./dist/index.js",
@@ -49,7 +49,8 @@
     "lint": "eslint . --ignore-path .gitignore",
     "transpile": "npm run clean && cup build",
     "build-test": "rm -rf dist-tests && cup build-tests",
-    "just-test": "node_modules/.bin/unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
+    "just-test":
+      "node_modules/.bin/unitest --browser=dist-tests/browser.js --node=dist-tests/node.js",
     "test": "npm run build-test && npm run just-test",
     "cover": "npm run build-test && nyc npm run just-test",
     "view-cover": "npm run cover && open coverage/index.html",
@@ -58,8 +59,5 @@
   "engines": {
     "node": ">= 8.11.0"
   },
-  "files": [
-    "dist",
-    "src"
-  ]
+  "files": ["dist", "src"]
 }
