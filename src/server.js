@@ -6,10 +6,9 @@
  *
  */
 
-import {createPlugin, type Middleware, type FusionPlugin} from 'fusion-core';
+import {createPlugin, type Middleware} from 'fusion-core';
 import {graphqlKoa} from 'apollo-server-koa';
 import {GraphQLSchemaToken} from 'fusion-apollo';
-import type {DepsType, PluginServiceType} from './types';
 import {ApolloServerEndpointToken} from './tokens';
 
 const plugin =
@@ -26,4 +25,4 @@ const plugin =
       ctx.path === endpoint ? handler(ctx) : next(),
   });
 
-export default ((plugin: any): FusionPlugin<DepsType, PluginServiceType>);
+export default plugin;
