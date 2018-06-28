@@ -1,8 +1,8 @@
 // @flow
 
 import type {Context} from 'fusion-core';
-import type {GraphQLSchemaToken} from 'fusion-apollo';
-import type {ApolloServerEndpointToken} from './tokens';
+import {GraphQLSchemaToken} from 'fusion-apollo';
+import {ApolloServerEndpointToken} from './tokens';
 
 export type PluginServiceType = {
   from: (
