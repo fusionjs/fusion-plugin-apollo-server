@@ -6,6 +6,7 @@ import {addMockFunctionsToSchema, makeExecutableSchema} from 'graphql-tools';
 import ApolloServer from '../index';
 import {ApolloServerEndpointToken} from '../tokens';
 import {GraphQLSchemaToken} from 'fusion-apollo';
+import type {Context} from 'fusion-core';
 
 const typeDefs = `
 type Query {
@@ -36,11 +37,11 @@ tape('teast handler servers on the specified endpoint', async t => {
   app.register(GraphQLSchemaToken, schema);
 
   const simulator = getSimulator(app);
-  const response = await simulator.request('/graphql', {
+  const ctx: Context = await simulator.request('/graphql', {
     body: query,
     method: 'POST',
   });
-  t.equal(response.status, 200);
-  t.equal(JSON.parse(response.body).data.getHello.name, 'Hello World');
+  t.equal(ctx.status, 200);
+  t.equal(JSON.parse(String(ctx.body)).data.getHello.name, 'Hello World');
   t.end();
 });
