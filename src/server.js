@@ -17,14 +17,14 @@ const plugin =
     deps: {
       endpoint: ApolloServerEndpointToken,
       schema: GraphQLSchemaToken,
-      context: ApolloContextToken.optional,
+      apolloContext: ApolloContextToken.optional,
     },
     provides: ({schema, context}) =>
       graphqlKoa(ctx => ({
         schema,
         tracing: true,
         cacheControl: true,
-        apolloContext: typeof context === 'function' ? context(ctx) : context,
+        context: typeof apolloContext === 'function' ? apolloContext(ctx) : apolloContext,
       })),
     middleware: ({endpoint}, handler): Middleware => (ctx, next) =>
       ctx.path === endpoint ? handler(ctx) : next(),
