@@ -19,7 +19,7 @@ const plugin =
       schema: GraphQLSchemaToken,
       apolloContext: ApolloContextToken.optional,
     },
-    provides: ({schema, context}) =>
+    provides: ({schema, apolloContext}) =>
       graphqlKoa(ctx => ({
         schema,
         tracing: true,
