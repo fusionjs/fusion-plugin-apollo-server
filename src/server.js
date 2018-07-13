@@ -24,7 +24,10 @@ const plugin =
         schema,
         tracing: true,
         cacheControl: true,
-        context: typeof apolloContext === 'function' ? apolloContext(ctx) : apolloContext,
+        context:
+          typeof apolloContext === 'function'
+            ? apolloContext(ctx)
+            : apolloContext,
       })),
     middleware: ({endpoint}, handler): Middleware => (ctx, next) =>
       ctx.path === endpoint ? handler(ctx) : next(),
