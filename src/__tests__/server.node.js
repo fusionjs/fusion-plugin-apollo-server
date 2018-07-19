@@ -30,7 +30,7 @@ export const schema = makeExecutableSchema({
 
 addMockFunctionsToSchema({schema});
 
-tape('teast handler servers on the specified endpoint', async t => {
+tape('handler should serve queries on the specified endpoint', async t => {
   const app = new App('el', el => el);
   app.register(ApolloServer);
   app.register(ApolloServerEndpointToken, '/graphql');

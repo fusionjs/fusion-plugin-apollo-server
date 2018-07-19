@@ -56,3 +56,18 @@ import {ApolloServerEndpointToken} from 'fusion-plugin-apollo-server';
 ```
 
 This should be registered to a string representing the desired GraphQL endpoint. If using [fusion-apollo-universal-client](https://github.com/fusionjs/fusion-apollo-universal-client), this will likely be the same value as `ApolloClientEndpointToken.
+
+##### ApolloContextToken
+
+This can be used to transform the koa context into an apollo context.
+
+```js
+import {ApolloContextToken} from 'fusion-apollo';
+
+app.register(ApolloContextToken, ctx => {
+  return {
+    httpContext: ctx,
+    otherContext: SOMEOHTERCONTEXT
+  };
+});
+```
