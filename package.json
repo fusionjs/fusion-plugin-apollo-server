@@ -22,7 +22,7 @@
     "@types/redux": "3.6.31",
     "apollo-client": "^2.3.5",
     "babel-eslint": "^8.2.5",
-    "create-universal-package": "3.4.4",
+    "create-universal-package": "3.4.5",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "eslint": "^5.0.1",
