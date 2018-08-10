@@ -2642,17 +2642,13 @@ fusion-react@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/fusion-react/-/fusion-react-1.0.5.tgz#478e5db3d49379d10ec9a072822a0e7b6092e036"
 
-fusion-test-utils@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fusion-test-utils/-/fusion-test-utils-1.2.0.tgz#b4fc730508e666213b79abae1cf13d9057867e51"
+fusion-test-utils@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/fusion-test-utils/-/fusion-test-utils-1.2.2.tgz#f1c72156012d4e0731875cd9b52d4ad426994a9b"
   dependencies:
     assert "^1.4.1"
     koa "^2.4.1"
     node-mocks-http "^1.6.6"
-
-fusion-tokens@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/fusion-tokens/-/fusion-tokens-1.0.3.tgz#e247a076ef145337287e103ecbc42486594e96c5"
 
 gauge@~2.7.3:
   version "2.7.4"
