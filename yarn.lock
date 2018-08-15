@@ -2620,17 +2620,6 @@ fusion-apollo@^1.2.0-1:
   dependencies:
     fusion-react "^1.0.5"
 
-fusion-core@^1.2.2:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/fusion-core/-/fusion-core-1.4.0.tgz#054f876a372d544fe90274e8199965960270c79a"
-  dependencies:
-    koa "^2.4.1"
-    koa-compose "^4.0.0"
-    node-mocks-http "^1.6.6"
-    toposort "^2.0.1"
-    ua-parser-js "^0.7.17"
-    uuid "^3.2.1"
-
 fusion-core@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/fusion-core/-/fusion-core-1.4.1.tgz#22daeddeefa3125b056cdcccd9c6dd486d7f032e"
@@ -2641,14 +2630,6 @@ fusion-core@^1.4.1:
     toposort "^2.0.1"
     ua-parser-js "^0.7.17"
     uuid "^3.2.1"
-
-fusion-react-async@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/fusion-react-async/-/fusion-react-async-1.2.2.tgz#ba2e9cbc014bf0a7dcce9dba99b08fe5d6cccd58"
-  dependencies:
-    fusion-core "^1.2.2"
-    prop-types "^15.5.8"
-    react-is "^16.3.1"
 
 fusion-react@^1.0.5:
   version "1.0.5"
@@ -4423,7 +4404,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2:
+prop-types@^15.6.0, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -4538,7 +4519,7 @@ react-dom@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-is@^16.3.1, react-is@^16.4.1:
+react-is@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
