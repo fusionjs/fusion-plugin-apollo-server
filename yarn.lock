@@ -2614,11 +2614,11 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
-fusion-apollo@^1.2.0-1:
-  version "1.2.0-1"
-  resolved "https://registry.yarnpkg.com/fusion-apollo/-/fusion-apollo-1.2.0-1.tgz#816e1320362f61f3ce1f3b7c34dbb8b1c974d1a9"
+fusion-apollo@1.2.1-0:
+  version "1.2.1-0"
+  resolved "https://registry.yarnpkg.com/fusion-apollo/-/fusion-apollo-1.2.1-0.tgz#5ac82d2f09830475d229a758be54f41345b52795"
   dependencies:
-    fusion-react "^1.0.5"
+    fusion-react "^1.1.0"
 
 fusion-core@^1.4.1:
   version "1.4.1"
@@ -2631,9 +2631,12 @@ fusion-core@^1.4.1:
     ua-parser-js "^0.7.17"
     uuid "^3.2.1"
 
-fusion-react@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/fusion-react/-/fusion-react-1.0.5.tgz#478e5db3d49379d10ec9a072822a0e7b6092e036"
+fusion-react@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/fusion-react/-/fusion-react-1.1.0.tgz#05a52ca23ee85a0c812979b9dd897000ec3f3555"
+  dependencies:
+    prop-types "^15.6.2"
+    react-is "^16.4.1"
 
 fusion-test-utils@^1.2.2:
   version "1.2.2"
