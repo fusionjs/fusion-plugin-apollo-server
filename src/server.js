@@ -6,13 +6,27 @@
  *
  */
 
-import {createPlugin, type Middleware} from 'fusion-core';
+import {
+  createPlugin,
+  type Context,
+  type FusionPlugin,
+  type Middleware,
+} from 'fusion-core';
 import {graphqlKoa} from 'apollo-server-koa';
 import {GraphQLSchemaToken, ApolloContextToken} from 'fusion-apollo';
 import {ApolloServerEndpointToken} from './tokens';
 
-const plugin =
-  __NODE__ &&
+type ApolloServerDepsType = {
+  endpoint: typeof ApolloServerEndpointToken,
+  schema: typeof GraphQLSchemaToken,
+  apolloContext: typeof ApolloContextToken.optional,
+};
+
+type ApolloServerType = Context => Promise<void>;
+
+type PluginType = FusionPlugin<ApolloServerDepsType, ApolloServerType>;
+
+const pluginFactory: () => PluginType = () =>
   createPlugin({
     deps: {
       endpoint: ApolloServerEndpointToken,
@@ -33,4 +47,4 @@ const plugin =
       ctx.path === endpoint ? handler(ctx) : next(),
   });
 
-export default plugin;
+export default ((__NODE__ && pluginFactory(): any): PluginType);

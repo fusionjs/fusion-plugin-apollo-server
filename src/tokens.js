@@ -1,6 +1,6 @@
 // @flow
-import {createToken} from 'fusion-core';
+import {createToken, type Token} from 'fusion-core';
 
-export const ApolloServerEndpointToken = createToken(
+export const ApolloServerEndpointToken: Token<string> = createToken(
   'ApolloServerEndpointToken'
 );
