@@ -33,7 +33,7 @@ const pluginFactory: () => PluginType = () =>
       schema: GraphQLSchemaToken,
       apolloContext: ApolloContextToken.optional,
     },
-    provides: ({schema, apolloContext}) =>
+    provides: ({schema, apolloContext = ctx => ctx}) =>
       graphqlKoa(ctx => ({
         schema,
         tracing: true,
