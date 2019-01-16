@@ -33,11 +33,12 @@
     "eslint-plugin-jest": "^22.0.0",
     "eslint-plugin-prettier": "3.0.0",
     "eslint-plugin-react": "7.11.1",
-    "flow-bin": "^0.86.0",
-    "fusion-apollo": "1.5.0",
+    "flow-bin": "^0.90.0",
+    "fusion-apollo": "1.6.0-0",
+    "fusion-tokens": "^1.1.1",
     "fusion-core": "^1.10.0",
     "fusion-test-utils": "^1.2.4",
-    "graphql": "^14.0.2",
+    "graphql": "^14.1.1",
     "graphql-tools": "^4.0.3",
     "nyc": "^13.1.0",
     "prettier": "^1.15.2",
@@ -48,7 +49,7 @@
     "unitest": "2.1.1"
   },
   "peerDependencies": {
-    "fusion-apollo": "^1.2.0-1",
+    "fusion-apollo": "^1.6.0-0",
     "fusion-core": "^1.0.0"
   },
   "scripts": {
