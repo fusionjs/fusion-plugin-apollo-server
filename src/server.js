@@ -40,7 +40,8 @@ const pluginFactory: () => PluginType = () =>
         cacheControl: true,
         context:
           typeof apolloContext === 'function'
-            ? apolloContext(ctx)
+            ? // $FlowFixMe
+              apolloContext(ctx)
             : apolloContext,
       })),
     middleware: ({endpoint = '/graphql'}, handler): Middleware => (ctx, next) =>
