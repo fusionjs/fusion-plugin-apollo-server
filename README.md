@@ -37,7 +37,7 @@ import {makeExecutableSchema} from 'graphql-tools';
 export default () => {
   ...
   app.register(ApolloServer);
-  app.register(ApolloServerEndpointToken, '/graphql');
+  app.register(ApolloServerEndpointToken, '/graphql'); // optional - /graphql is the default
   app.register(GraphQLSchemaToken, makeExecutableSchema(...));
   ...
 };
