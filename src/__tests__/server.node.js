@@ -49,7 +49,7 @@ tape('handler should serve queries on the specified endpoint', async t => {
 tape('Downstream Error handling should work', async t => {
   const app = new App('el', el => el);
   app.middleware((ctx, next) => {
-    ctx.throw('FAIL');
+    throw new Error('FAIL');
   });
   app.register(ApolloServer);
   app.register(ApolloServerEndpointToken, '/graphql');
@@ -74,7 +74,7 @@ tape('Upstream Error handling should work', async t => {
   app.register(ApolloServerEndpointToken, '/graphql');
   app.register(GraphQLSchemaToken, schema);
   app.middleware((ctx, next) => {
-    ctx.throw('FAIL');
+    throw new Error('FAIL');
   });
 
   const simulator = getSimulator(app);
