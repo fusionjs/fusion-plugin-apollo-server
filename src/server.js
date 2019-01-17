@@ -33,8 +33,8 @@ const pluginFactory: () => PluginType = () =>
       schema: GraphQLSchemaToken,
       apolloContext: ApolloContextToken.optional,
     },
-    provides: ({schema, apolloContext = ctx => ctx}) =>
-      graphqlKoa(ctx => ({
+    provides: ({schema, apolloContext = ctx => ctx}) => {
+      return graphqlKoa(ctx => ({
         schema,
         tracing: true,
         cacheControl: true,
@@ -43,9 +43,17 @@ const pluginFactory: () => PluginType = () =>
             ? // $FlowFixMe
               apolloContext(ctx)
             : apolloContext,
-      })),
-    middleware: ({endpoint = '/graphql'}, handler): Middleware => (ctx, next) =>
-      ctx.path === endpoint ? handler(ctx) : next(),
+      }));
+    },
+    middleware: ({endpoint = '/graphql'}, handler): Middleware => async (
+      ctx,
+      next
+    ) => {
+      await next();
+      if (ctx.path === endpoint) {
+        return handler(ctx);
+      }
+    },
   });
 
 export default ((__NODE__ && pluginFactory(): any): PluginType);
