@@ -45,3 +45,47 @@ tape('handler should serve queries on the specified endpoint', async t => {
   t.equal(JSON.parse(String(ctx.body)).data.getHello.name, 'Hello World');
   t.end();
 });
+
+tape('Downstream Error handling should work', async t => {
+  const app = new App('el', el => el);
+  app.middleware((ctx, next) => {
+    throw new Error('FAIL');
+  });
+  app.register(ApolloServer);
+  app.register(ApolloServerEndpointToken, '/graphql');
+  app.register(GraphQLSchemaToken, schema);
+
+  const simulator = getSimulator(app);
+  try {
+    await simulator.request('/graphql', {
+      body: query,
+      method: 'POST',
+    });
+    t.fail('Should not reach this');
+  } catch (e) {
+    t.ok(e, 'has error');
+    t.end();
+  }
+});
+
+tape('Upstream Error handling should work', async t => {
+  const app = new App('el', el => el);
+  app.register(ApolloServer);
+  app.register(ApolloServerEndpointToken, '/graphql');
+  app.register(GraphQLSchemaToken, schema);
+  app.middleware((ctx, next) => {
+    throw new Error('FAIL');
+  });
+
+  const simulator = getSimulator(app);
+  try {
+    await simulator.request('/graphql', {
+      body: query,
+      method: 'POST',
+    });
+    t.fail('Should not reach this');
+  } catch (e) {
+    t.ok(e, 'has error');
+    t.end();
+  }
+});
