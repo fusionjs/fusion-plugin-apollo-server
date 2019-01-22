@@ -1,7 +1,7 @@
 {
   "name": "fusion-plugin-apollo-server",
   "description": "Connects a GraphQL schema to a Fusion.js server.",
-  "version": "1.2.0-3",
+  "version": "1.2.0-WjvFX0DWKN",
   "license": "MIT",
   "repository": "fusionjs/fusion-plugin-apollo-server",
   "main": "./dist/index.js",
