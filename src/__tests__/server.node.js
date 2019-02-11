@@ -4,7 +4,10 @@ import App from 'fusion-core';
 import tape from 'tape-cup';
 import {addMockFunctionsToSchema, makeExecutableSchema} from 'graphql-tools';
 import ApolloServer from '../index';
-import {ApolloServerEndpointToken} from '../tokens';
+import {
+  ApolloServerEndpointToken,
+  ApolloServerFormatFunctionToken,
+} from '../tokens';
 import {GraphQLSchemaToken} from 'fusion-apollo';
 import type {Context} from 'fusion-core';
 
@@ -88,4 +91,38 @@ tape('Upstream Error handling should work', async t => {
     t.ok(e, 'has error');
     t.end();
   }
+});
+
+tape('Format error', async t => {
+  const schema = makeExecutableSchema({
+    typeDefs,
+  });
+
+  addMockFunctionsToSchema({
+    schema,
+    mocks: {
+      Test: () => {
+        throw new Error('resolver error');
+      },
+    },
+  });
+
+  const app = new App('el', el => el);
+  app.register(ApolloServer);
+  app.register(ApolloServerEndpointToken, '/graphql');
+  const formatError = error => {
+    return {text: 'formatted error'};
+  };
+  app.register(GraphQLSchemaToken, schema);
+  app.register(ApolloServerFormatFunctionToken, formatError);
+
+  const simulator = getSimulator(app);
+  const ctx: Context = await simulator.request('/graphql', {
+    body: query,
+    method: 'POST',
+  });
+  const response = JSON.parse(String(ctx.body));
+
+  t.deepEqual(response.errors[0], {text: 'formatted error'});
+  t.end();
 });

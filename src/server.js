@@ -14,12 +14,16 @@ import {
 } from 'fusion-core';
 import {graphqlKoa} from 'apollo-server-koa';
 import {GraphQLSchemaToken, ApolloContextToken} from 'fusion-apollo';
-import {ApolloServerEndpointToken} from './tokens';
+import {
+  ApolloServerEndpointToken,
+  ApolloServerFormatFunctionToken,
+} from './tokens';
 
 type ApolloServerDepsType = {
   endpoint: typeof ApolloServerEndpointToken.optional,
   schema: typeof GraphQLSchemaToken,
   apolloContext: typeof ApolloContextToken.optional,
+  formatError: typeof ApolloServerFormatFunctionToken.optional,
 };
 
 type ApolloServerType = Context => Promise<void>;
@@ -32,12 +36,14 @@ const pluginFactory: () => PluginType = () =>
       endpoint: ApolloServerEndpointToken.optional,
       schema: GraphQLSchemaToken,
       apolloContext: ApolloContextToken.optional,
+      formatError: ApolloServerFormatFunctionToken.optional,
     },
-    provides: ({schema, apolloContext = ctx => ctx}) => {
+    provides: ({schema, formatError, apolloContext = ctx => ctx}) => {
       return graphqlKoa(ctx => ({
         schema,
         tracing: true,
         cacheControl: true,
+        formatError,
         context:
           typeof apolloContext === 'function'
             ? // $FlowFixMe
