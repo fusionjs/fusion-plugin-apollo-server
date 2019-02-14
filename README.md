@@ -13,6 +13,7 @@ This plugin connects GraphQL schema to your Fusion.js server, allowing you to ho
 - [API](#api)
   - [Registration API](#registration-api)
     - [`ApolloServerEndpointToken`](#apolloserverendpointtoken)
+    - [`ApolloServerFormatFunctionToken`](#apolloserverformatfunctiontoken)
 
 ---
 
@@ -56,6 +57,14 @@ import {ApolloServerEndpointToken} from 'fusion-plugin-apollo-server';
 ```
 
 This should be registered to a string representing the desired GraphQL endpoint. If using [fusion-apollo-universal-client](https://github.com/fusionjs/fusion-apollo-universal-client), this will likely be the same value as `ApolloClientEndpointToken.
+
+##### ApolloServerFormatFunctionToken
+
+```js
+import {ApolloServerFormatFunctionToken} from 'fusion-plugin-apollo-server';
+```
+
+Register function to format errors from resolvers. Could be used for logging.
 
 ##### ApolloContextToken
 
