@@ -1,3 +1,5 @@
+> DEPRECATED. Please use [fusion-plugin-apollo](https://github.com/fusionjs/fusionjs/tree/master/fusion-plugin-apollo) instead
+
 # fusion-plugin-apollo-server
 
 [![Build status](https://badge.buildkite.com/c931c046e7af2b778aaa22cc9de5255c5ba012aedc63feb595.svg?branch=master)](https://buildkite.com/uberopensource/fusion-plugin-apollo-server)
